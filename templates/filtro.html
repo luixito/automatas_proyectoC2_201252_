@@ -4,24 +4,107 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filtro</title>
+    <title>Filtro Avanzado</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #6c757d 0%, #adb5bd 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #212529;
+        }
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            text-align: center;
+            color: #495057;
+            margin-bottom: 30px;
+            
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 10px;
+            font-weight: 500;
+            font-weight: bold;
+        }
+        select, input[type="text"] {
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            border: 2px solid #ced4da;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            font-size: 16px;
+        }
+        select:focus, input[type="text"]:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+            outline: none;
+        }
+        input[type="submit"] {
+            padding: 10px 15px;
+            background-color: #224365;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s;
+            
+        }
+        a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        p{
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h2>Filtro</h2>
-    <p>Bienvenido, {{ session['usuario'] }} (<a href="/logout">Cerrar Sesión</a>)</p>
-    <form method="POST" action="/filtro">
-        <label for="campo">Campo a filtrar:</label>
-        <select name="campo" required>
-            <option value="Clave cliente">Clave de Cliente</option>
-            <option value="Nombre Contacto">Nombre de Contacto</option>
-            <option value="Correo">Correo</option>
-            <option value="Teléfono Contacto">Teléfono Contacto</option>
-        </select><br>
+    <div class="container">
+        <h2>Filtro</h2>
+        <p>Bienvenido, {{ session['usuario'] }} (<a href="/logout">Cerrar Sesión</a>)</p>
+        <form method="POST" action="/filtro">
+            <label for="campo">Campo a filtrar:</label>
+            <select name="campo" id="campo" required>
+                <option value="Clave cliente">Clave de Cliente</option>
+                <option value="Nombre Contacto">Nombre de Contacto</option>
+                <option value="Correo">Correo</option>
+                <option value="Teléfono Contacto">Teléfono Contacto</option>
+            </select>
 
-        <label for="valor">Valor a buscar:</label>
-        <input type="text" name="valor" required><br>
+            <label for="valor">Valor a buscar:</label>
+            <input type="text" name="valor" id="valor" required>
 
-        <input type="submit" value="Buscar">
-    </form>
+            <input type="submit" value="Buscar">
+        </form>
+    </div>
 </body>
 </html>

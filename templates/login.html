@@ -5,17 +5,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://static.videezy.com/system/resources/thumbnails/000/046/394/original/1054027Abstract-blue-neon-rays-background-_HD_BG.jpg'); /* Reemplaza con la URL de tu imagen de fondo */
+            background-size: cover;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .login-container {
+            color: white;
+            backdrop-filter: blur(16px);
+            padding: 4rem;
+            border: 2px solid white;
+            text-align: center;
+            position: absolute;
+            border-radius: 10px;
+            box-shadow: 0px 0px 68px 5px rgba(255, 255, 255, 0.3);
+            position: relative;
+            width: 250px;
+        }
+        h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: white;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #224365; /* Color de fondo del botón */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #417e8c;
+        }
+    </style>
 </head>
 <body>
-    <h2>Login</h2>
-    <form method="POST" action="/login">
-        <label for="usuario">Usuario:</label>
-        <input type="text" name="usuario" required><br>
-
-        <label for="password">Contraseña:</label>
-        <input type="password" name="password" required><br>
-
-        <input type="submit" value="Iniciar Sesión">
-    </form>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form method="POST" action="/login">
+            <label for="usuario">Usuario:</label>
+            <input type="text" name="usuario" required>
+            <label for="password">Contraseña:</label>
+            <input type="password" name="password" required>
+            <div style="margin-top: 20px; text-align: center;">
+                <input type="submit" value="Ingresar">
+            </div>
+        </form>
+    </div>
 </body>
 </html>
