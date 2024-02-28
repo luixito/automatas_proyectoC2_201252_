@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtro</title>
+</head>
+<body>
+    <h2>Filtro</h2>
+    <p>Bienvenido, {{ session['usuario'] }} (<a href="/logout">Cerrar Sesión</a>)</p>
+    <form method="POST" action="/filtro">
+        <label for="campo">Campo a filtrar:</label>
+        <select name="campo" required>
+            <option value="Clave cliente">Clave de Cliente</option>
+            <option value="Nombre Contacto">Nombre de Contacto</option>
+            <option value="Correo">Correo</option>
+            <option value="Teléfono Contacto">Teléfono Contacto</option>
+        </select><br>
+
+        <label for="valor">Valor a buscar:</label>
+        <input type="text" name="valor" required><br>
+
+        <input type="submit" value="Buscar">
+    </form>
+</body>
+</html>

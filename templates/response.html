@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de la búsqueda</title>
+</head>
+<body>
+    <h1>Resultados de la búsqueda</h1>
+
+    {% if resultados %}
+        <table border="1">
+            <tr>
+                {% for key in resultados[0].keys() %}
+                    <th>{{ key }}</th>
+                {% endfor %}
+            </tr>
+            {% for resultado in resultados %}
+                <tr>
+                    {% for value in resultado.values() %}
+                        <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No se encontraron resultados.</p>
+    {% endif %}
+
+    <br>
+    <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+</body>
+</html>
